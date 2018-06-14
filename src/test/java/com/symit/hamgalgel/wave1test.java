@@ -21,6 +21,7 @@ public class wave1test {
 		Gmah gmah2 = new Gmah(10000,60,60);
 		personne.getListGmahim().add(gmah2);
 		assertTrue(personne.isAllowToBorrow(10000));
+		assertFalse(personne.isAllowToBorrow(15000));
 		
 				
 	}
