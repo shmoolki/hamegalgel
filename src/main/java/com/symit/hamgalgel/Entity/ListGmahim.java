@@ -3,7 +3,6 @@ package com.symit.hamgalgel.Entity;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import org.hamcrest.core.IsNull;
 
 public class ListGmahim {
 	private ArrayList<Gmah> list = new  ArrayList<Gmah>();
