@@ -77,8 +77,8 @@ public class Personne {
 
 		for(Gmah gmh:this.getListGmahim()) {
 			amountAllowed+= gmh.getAmount();
-		}
-		
+		}		
+//		System.out.println(amountAllowed);
 		return (amountAllowed >= d);
 	}
 	
