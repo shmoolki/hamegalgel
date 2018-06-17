@@ -27,3 +27,6 @@ buildNumber.properties
 # Maven
 log/
 target/
+
+#vscode
+.vscode/
