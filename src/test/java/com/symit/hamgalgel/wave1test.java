@@ -2,7 +2,10 @@ package com.symit.hamgalgel;
 
 import static org.junit.Assert.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
 
 import org.junit.Before;
@@ -24,8 +27,12 @@ public class wave1test {
 		this.gmah = new Gmah(15000,90,60);
 		this.gmah2 = new Gmah(10000,60,60);
 		personne = new Personne("Ploni","Almoni","054-1234356","Rehov Untel",new City("Bne Brak","Israel"));
-		personne.getListGmahim().add(this.gmah);
-		personne.getListGmahim().add(this.gmah2);
+		
+		ArrayList<Gmah> list = new ArrayList<Gmah>();
+		list.add(this.gmah);
+		list.add(this.gmah2);
+		ListGmahim listGmahim = new ListGmahim(list);
+		personne.setListGmahim(listGmahim);
 	}
 
 	@Test
@@ -54,7 +61,12 @@ public class wave1test {
 	}
 	
 	@Test
-	public void shouldReturnFalseIfWaitingTimeNotNotGet() {
+	public void shouldReturnFalseIfWaitingTimeNotNotGet() throws ParseException {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+		personne.getListGmahim().takeGmah(this.personne.getListGmahim().getList().get(0), dateFormat.parse("01/01/2018"));
+		boolean gmahDispoEnDate = personne.getListGmahim().checkValidity(personne.getListGmahim().getList().get(0),new Date());
+		assertFalse(gmahDispoEnDate);
 		
 	}
 	

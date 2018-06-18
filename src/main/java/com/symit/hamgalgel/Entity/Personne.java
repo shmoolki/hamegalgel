@@ -1,6 +1,7 @@
 package com.symit.hamgalgel.Entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Personne {
 	private String firstName;
@@ -8,7 +9,7 @@ public class Personne {
 	private String telephone;
 	private String adress;
 	private City city;
-	private ArrayList<Gmah> listGmahim = new  ArrayList<Gmah>();
+	private ListGmahim listGmahim;
 	
 	public Personne(String firstName, String lastName, String telephone, String adress, City city) {
 		super();
@@ -64,23 +65,25 @@ public class Personne {
 		this.city = city;
 	}
 
-	public ArrayList<Gmah> getListGmahim() {
+	public ListGmahim getListGmahim() {
 		return listGmahim;
 	}
 
-	public void setListGmahim(ArrayList<Gmah> listGmahim) {
+	public void setListGmahim(ListGmahim listGmahim) {
 		this.listGmahim = listGmahim;
 	}
 
 	public boolean isAllowToBorrow(double d) {
 		double amountAllowed = 0;
 
-		for(Gmah gmh:this.getListGmahim()) {
+		for(Gmah gmh:this.getListGmahim().getList()) {
 			amountAllowed+= gmh.getAmount();
 		}		
 //		System.out.println(amountAllowed);
 		return (amountAllowed >= d);
 	}
+
+
 	
 	
 }

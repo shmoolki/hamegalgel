@@ -1,6 +1,7 @@
 package com.symit.hamgalgel.Entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
 
 
@@ -52,6 +53,14 @@ public class ListGmahim {
 		    avalaibleGmah.remove(this.enCours);
 		    return avalaibleGmah;
 		}
+	}
+	
+	public boolean checkValidity(Gmah gmah , Date date){
+		return false;
+	}
+
+	public void takeGmah(Gmah gmah, Date date) {
+		
 	}
 	
 	
