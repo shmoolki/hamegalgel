@@ -15,12 +15,14 @@ import com.symit.hamgalgel.Entity.City;
 import com.symit.hamgalgel.Entity.Gmah;
 import com.symit.hamgalgel.Entity.ListGmahim;
 import com.symit.hamgalgel.Entity.Personne;
+import com.symit.hamgalgel.controller.EmpruntController;
 
 public class wave1test {
 
 	private Gmah gmah;
 	private Gmah gmah2;
 	private Personne personne;
+	private EmpruntController empCtl;
 	
 	@Before
 	public void  PrepareData() {
@@ -57,7 +59,6 @@ public class wave1test {
 		
 		assertEquals(list.get(1),listGmahim.nextDispo().get());
 		
-		list.clear();	
 	}
 	
 	@Test
@@ -67,6 +68,12 @@ public class wave1test {
 		personne.getListGmahim().takeGmah(this.personne.getListGmahim().getList().get(0), dateFormat.parse("01/01/2018"));
 		boolean gmahDispoEnDate = personne.getListGmahim().checkValidity(personne.getListGmahim().getList().get(0),new Date());
 		assertFalse(gmahDispoEnDate);
+		
+	}
+	
+	@Test
+	public void takeAGmah() {
+	
 		
 	}
 	
